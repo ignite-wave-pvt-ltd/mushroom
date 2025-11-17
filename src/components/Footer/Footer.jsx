@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { logo } from "../../assets";
 
 const Footer = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -74,15 +75,20 @@ const Footer = () => {
           {/* Brand Section */}
           <div className="lg:col-span-2">
             <div className="flex items-center space-x-3 mb-6 transform hover:scale-105 transition-transform duration-300">
-              <div className="w-12 h-12 rounded-2xl bg-[var(--color-primary)] flex items-center justify-center text-white font-bold text-xl shadow-lg">
-                M
+              <div className="relative">
+                <img
+                  src={logo}
+                  alt="Vara Mushroom Hut Logo"
+                  className="w-12 h-12 rounded-2xl shadow-lg"
+                />
+                <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-green-400 rounded-full border-2 border-white"></div>
               </div>
               <div>
                 <h3
                   className="text-2xl font-bold"
                   style={{ color: "var(--color-heading)" }}
                 >
-                  Mushroom Farm
+                  Vara mushroom hut
                 </h3>
                 <p
                   className="text-sm mt-1"
@@ -227,7 +233,9 @@ const Footer = () => {
               <p
                 className="text-sm font-medium"
                 style={{ color: "var(--color-text)" }}
-                onClick={() => { window.open("https://calcyntra.com", "_blank"); }}
+                onClick={() => {
+                  window.open("https://calcyntra.com", "_blank");
+                }}
               >
                 Calcyntra Technologies Pvt Ltd
               </p>
@@ -236,7 +244,7 @@ const Footer = () => {
               className="text-xs text-center lg:text-left"
               style={{ color: "var(--color-muted)" }}
             >
-              © 2025 Mushroom Farm. All rights reserved.
+              © 2025 Vara mushroom hut. All rights reserved.
               <span className="mx-2">•</span>
               Innovating with precision and sustainability
             </p>

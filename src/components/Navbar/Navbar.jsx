@@ -58,14 +58,14 @@ const Navbar = () => {
               <div className="relative">
                 <img
                   src={logo}
-                  alt="Varamushroomhut Logo"
+                  alt="Vara Mushroom Hut Logo"
                   className="w-12 h-12 rounded-2xl shadow-lg"
                 />
                 <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-green-400 rounded-full border-2 border-white"></div>
               </div>
               <div className="flex flex-col">
                 <h1 className="text-2xl font-bold bg-gradient-to-r from-gray-800 to-emerald-700 bg-clip-text text-transparent">
-                  Varamushroomhut
+                  Vara Mushroom Hut
                 </h1>
                 <p className="text-xs text-gray-500 font-medium tracking-wide">
                   ORGANIC & SUSTAINABLE
