@@ -23,7 +23,6 @@ const Navbar = () => {
     { name: "Home", href: "#home", path: "/" },
     { name: "About", href: "#about", path: "/about" },
     { name: "Varieties", href: "#varieties", path: "/varieties" },
-    // { name: "Shop", href: "#shop", path: "/shop" },
     { name: "Learn", href: "#learn", path: "/learn" },
   ];
 
@@ -47,6 +46,7 @@ const Navbar = () => {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
+            
             {/* Logo */}
             <div
               className="flex items-center space-x-3 cursor-pointer transform hover:scale-105 transition-transform duration-300"
@@ -56,9 +56,6 @@ const Navbar = () => {
               }}
             >
               <div className="relative">
-                {/* <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-emerald-600 to-green-700 flex items-center justify-center text-white font-bold text-xl shadow-lg">
-                  M
-                </div> */}
                 <img
                   src={logo}
                   alt="Varamushroomhut Logo"
@@ -101,7 +98,7 @@ const Navbar = () => {
               ))}
             </div>
 
-            {/* Desktop CTA Buttons */}
+            {/* Desktop CTA */}
             <div className="hidden lg:flex items-center space-x-3">
               <button
                 className="px-6 py-2.5 rounded-xl cursor-pointer font-semibold text-sm transition-all duration-300 border-2 border-emerald-600 text-emerald-700 hover:bg-emerald-50 hover:shadow-lg hover:scale-105 active:scale-95"
@@ -110,7 +107,7 @@ const Navbar = () => {
                 Contact Us
               </button>
               <button
-                className="px-7 py-2.5 rounded-xl cursor-pointer font-semibold text-sm text-white transition-all duration-300 bg-gradient-to-r from-emerald-600 to-green-700 hover:from-emerald-700 hover:to-green-800 hover:shadow-2xl hover:scale-105 active:scale-95 shadow-lg flex items-center space-x-2"
+                className="px-7 py-2.5 rounded-xl cursor-pointer font-semibold text-sm text-white transition-all duration-300 bg-emerald-600 bg-gradient-to-r from-emerald-600 to-green-700 hover:from-emerald-700 hover:to-green-800 hover:shadow-2xl hover:scale-105 active:scale-95 shadow-lg flex items-center space-x-2"
                 onClick={() => navigate("/shop-now")}
               >
                 <span>Shop Now</span>
@@ -130,7 +127,7 @@ const Navbar = () => {
               </button>
             </div>
 
-            {/* Mobile menu button */}
+            {/* Mobile Hamburger */}
             <button
               className="lg:hidden flex flex-col items-center justify-center w-10 h-10 relative focus:outline-none"
               onClick={() => setIsOpen(!isOpen)}
@@ -154,10 +151,10 @@ const Navbar = () => {
           </div>
         </div>
 
-        {/* Mobile Navigation Menu */}
+        {/* Mobile Navigation */}
         <div
           className={`lg:hidden absolute top-full left-0 right-0 bg-white/95 backdrop-blur-xl border-t border-gray-200 transition-all duration-500 ease-in-out ${
-            isOpen ? "max-h-96 opacity-100 shadow-2xl" : "max-h-0 opacity-0"
+            isOpen ? "max-h-screen opacity-100 shadow-2xl" : "max-h-0 opacity-0"
           } overflow-hidden`}
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 py-6">
@@ -183,7 +180,7 @@ const Navbar = () => {
                 </button>
               ))}
 
-              {/* Mobile CTA Buttons */}
+              {/* Mobile CTA */}
               <div className="flex flex-col space-y-3 pt-4 border-t border-gray-200 mt-2">
                 <button
                   className="py-4 px-6 font-semibold rounded-xl transition-all duration-300 text-center border-2 border-emerald-600 text-emerald-700 hover:bg-emerald-50 active:scale-95"
@@ -194,8 +191,9 @@ const Navbar = () => {
                 >
                   Contact Us
                 </button>
+
                 <button
-                  className="py-4 px-6 font-semibold rounded-xl transition-all duration-300 text-center text-white bg-gradient-to-r from-emerald-600 to-green-700 hover:from-emerald-700 hover:to-green-800 active:scale-95 shadow-lg flex items-center justify-center space-x-2"
+                  className="py-4 px-6 font-semibold rounded-xl transition-all duration-300 text-center text-white bg-emerald-600 bg-gradient-to-r from-emerald-600 to-green-700 hover:from-emerald-700 hover:to-green-800 active:scale-95 shadow-lg flex items-center justify-center space-x-2"
                   onClick={() => {
                     navigate("/shop-now");
                     setIsOpen(false);
@@ -222,7 +220,7 @@ const Navbar = () => {
         </div>
       </nav>
 
-      {/* Spacer to prevent content from going under fixed navbar */}
+      {/* Spacer */}
       <div className="h-20 lg:h-24"></div>
     </>
   );
