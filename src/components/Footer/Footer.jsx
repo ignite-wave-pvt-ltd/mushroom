@@ -88,7 +88,7 @@ const Footer = () => {
                   className="text-2xl font-bold"
                   style={{ color: "var(--color-heading)" }}
                 >
-                  Vara mushroom hut
+                  Vara Mushroom Hut
                 </h3>
                 <p
                   className="text-sm mt-1"
@@ -244,7 +244,7 @@ const Footer = () => {
               className="text-xs text-center lg:text-left"
               style={{ color: "var(--color-muted)" }}
             >
-              © 2025 Vara mushroom hut. All rights reserved.
+              © 2025 Vara Mushroom Hut. All rights reserved.
               <span className="mx-2">•</span>
               Innovating with precision and sustainability
             </p>
