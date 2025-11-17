@@ -216,37 +216,58 @@ const Footer = () => {
 
         {/* Bottom Bar */}
         <div
-          className={`mt-8 pt-8 border-t border-[var(--color-primary)]/20 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 transition-all duration-500 delay-500 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+          className={`mt-12 pt-8 border-t border-[var(--color-primary)]/30 flex flex-col lg:flex-row justify-between items-center space-y-6 lg:space-y-0 transition-all duration-700 delay-300 ${
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
           }`}
         >
-          <p className="text-sm" style={{ color: "var(--color-muted)" }}>
-            © 2025 Mushroom Farm. All rights reserved.
-            <span className="mx-2">•</span>
-            Growing with love and sustainability
-          </p>
-          <div className="flex space-x-6 text-sm">
-            <a
-              href="/privacy"
-              className="transition-all duration-300 hover:font-medium"
-              style={{ color: "var(--color-text)" }}
+          {/* Company Info */}
+          <div className="flex flex-col items-center lg:items-start space-y-2">
+            <div className="flex items-center space-x-3">
+              <div className="w-2 h-2 bg-[var(--color-accent)] rounded-full animate-pulse"></div>
+              <p
+                className="text-sm font-medium"
+                style={{ color: "var(--color-text)" }}
+                onClick={() => { window.open("https://calcyntra.com", "_blank"); }}
+              >
+                Calcyntra Technologies Pvt Ltd
+              </p>
+            </div>
+            <p
+              className="text-xs text-center lg:text-left"
+              style={{ color: "var(--color-muted)" }}
             >
-              Privacy Policy
-            </a>
-            <a
-              href="/terms"
-              className="transition-all duration-300 hover:font-medium"
-              style={{ color: "var(--color-text)" }}
-            >
-              Terms of Service
-            </a>
-            <a
-              href="/sitemap"
-              className="transition-all duration-300 hover:font-medium"
-              style={{ color: "var(--color-text)" }}
-            >
-              Sitemap
-            </a>
+              © 2025 Mushroom Farm. All rights reserved.
+              <span className="mx-2">•</span>
+              Innovating with precision and sustainability
+            </p>
+          </div>
+
+          {/* Links & Social */}
+          <div className="flex flex-col items-center lg:items-end space-y-4">
+            {/* Quick Links */}
+            <div className="flex space-x-8 text-sm">
+              <a
+                href="/privacy"
+                className="transition-all duration-300 hover:font-medium hover:scale-105 transform"
+                style={{ color: "var(--color-text)" }}
+              >
+                Privacy Policy
+              </a>
+              <a
+                href="/terms"
+                className="transition-all duration-300 hover:font-medium hover:scale-105 transform"
+                style={{ color: "var(--color-text)" }}
+              >
+                Terms of Service
+              </a>
+              <a
+                href="/sitemap"
+                className="transition-all duration-300 hover:font-medium hover:scale-105 transform"
+                style={{ color: "var(--color-text)" }}
+              >
+                Sitemap
+              </a>
+            </div>
           </div>
         </div>
       </div>
