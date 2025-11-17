@@ -1,0 +1,11 @@
+@import "tailwindcss";
+
+:root {
+  --color-bg: #ffffff; /* clean white background */
+  --color-primary: #065f46; /* emerald-700 - primary green */
+  --color-secondary: #059669; /* emerald-600 - secondary green */
+  --color-accent: #16a34a; /* green-600 - accent green */
+  --color-text: #374151; /* gray-700 - main text */
+  --color-heading: #111827; /* gray-900 - headings */
+  --color-muted: #6b7280; /* gray-500 - muted text */
+}
