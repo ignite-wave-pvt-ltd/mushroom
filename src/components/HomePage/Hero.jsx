@@ -80,6 +80,8 @@ const MushroomHero = () => {
                   backgroundColor: "var(--color-primary)",
                   boxShadow: "0 4px 14px 0 rgba(90, 107, 59, 0.2)",
                 }}
+                onClick={() => { window.location.href = "/shop-now"; }
+                }
               >
                 Shop Now
               </button>
@@ -89,6 +91,8 @@ const MushroomHero = () => {
                   borderColor: "var(--color-primary)",
                   color: "var(--color-primary)",
                 }}
+                onClick={() => { window.location.href = "/learn"; }
+                }
               >
                 Learn Cultivation
               </button>

@@ -88,7 +88,7 @@ const Footer = () => {
                   className="text-sm mt-1"
                   style={{ color: "var(--color-muted)" }}
                 >
-                  Organic & Sustainable Since 2015
+                  Organic & Sustainable Since 2023
                 </p>
               </div>
             </div>
@@ -221,7 +221,7 @@ const Footer = () => {
           }`}
         >
           <p className="text-sm" style={{ color: "var(--color-muted)" }}>
-            © 2024 Mushroom Farm. All rights reserved.
+            © 2025 Mushroom Farm. All rights reserved.
             <span className="mx-2">•</span>
             Growing with love and sustainability
           </p>

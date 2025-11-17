@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
+import { logo } from "../../assets";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -55,14 +56,19 @@ const Navbar = () => {
               }}
             >
               <div className="relative">
-                <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-emerald-600 to-green-700 flex items-center justify-center text-white font-bold text-xl shadow-lg">
+                {/* <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-emerald-600 to-green-700 flex items-center justify-center text-white font-bold text-xl shadow-lg">
                   M
-                </div>
+                </div> */}
+                <img
+                  src={logo}
+                  alt="Varamushroomhut Logo"
+                  className="w-12 h-12 rounded-2xl shadow-lg"
+                />
                 <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-green-400 rounded-full border-2 border-white"></div>
               </div>
               <div className="flex flex-col">
                 <h1 className="text-2xl font-bold bg-gradient-to-r from-gray-800 to-emerald-700 bg-clip-text text-transparent">
-                  MushroomFarm
+                  Varamushroomhut
                 </h1>
                 <p className="text-xs text-gray-500 font-medium tracking-wide">
                   ORGANIC & SUSTAINABLE

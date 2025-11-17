@@ -408,10 +408,18 @@ const GallerySection = () => {
                   backgroundColor: "var(--color-accent)",
                   color: "white",
                 }}
+                onClick={() => {
+                  window.location.href = "/contact-us";
+                }}
               >
                 🎥 Schedule Virtual Tour
               </button>
-              <button className="px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 hover:transform hover:scale-105 border-2 border-white text-white hover:bg-white hover:text-gray-800">
+              <button
+                className="px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 hover:transform hover:scale-105 border-2 border-white text-white hover:bg-white hover:text-gray-800"
+                onClick={() => {
+                  window.location.href = "/contact-us";
+                }}
+              >
                 📞 Book Farm Visit
               </button>
             </div>

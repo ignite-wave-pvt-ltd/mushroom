@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Navbar from "../../components/Navbar/Navbar";
+import { phone_number } from "../../utils/config";
 
 const ContactSection = () => {
   const [formData, setFormData] = useState({
@@ -14,17 +15,17 @@ const ContactSection = () => {
     {
       icon: "📞",
       title: "Call Us",
-      details: "+1 (555) 123-4567",
+      details: `+91 ${phone_number}`,
       description: "Mon-Fri from 8am to 6pm",
-      action: "tel:+15551234567",
+      action: `tel:${phone_number}`,
       color: "from-green-50 to-green-100",
     },
     {
       icon: "💬",
       title: "WhatsApp",
-      details: "+1 (555) 123-4567",
+      details: `+91 ${phone_number}`,
       description: "24/7 quick responses",
-      action: "https://wa.me/15551234567",
+      action: `https://wa.me/${phone_number}`,
       color: "from-green-50 to-emerald-100",
     },
     {
@@ -38,7 +39,7 @@ const ContactSection = () => {
     {
       icon: "📍",
       title: "Visit Us",
-      details: "123 Forest Lane, Green Valley",
+      details: "12-663/Saptagiri colony, tirupati, Andhra Pradesh, 517502",
       description: "Open for farm tours by appointment",
       action: "#map",
       color: "from-amber-50 to-amber-100",
@@ -48,7 +49,7 @@ const ContactSection = () => {
   const farmDetails = [
     {
       label: "Farm Address",
-      value: "123 Organic Farm Road, Green Valley, CA 94201",
+      value: "12-663/Saptagiri colony, tirupati, Andhra Pradesh, 517502",
     },
     { label: "Business Hours", value: "Monday - Friday: 8:00 AM - 6:00 PM" },
     { label: "Weekend Hours", value: "Saturday: 9:00 AM - 4:00 PM" },
@@ -281,7 +282,7 @@ const ContactSection = () => {
                       borderColor: "rgba(47, 79, 79, 0.2)",
                       color: "var(--color-text)",
                     }}
-                    placeholder="+1 (555) 123-4567"
+                    placeholder="+91 (555) 123-4567"
                   />
                 </div>
 
@@ -395,13 +396,19 @@ const ContactSection = () => {
                   Google Maps Embed
                 </h4>
                 <p style={{ color: "var(--color-text)" }}>
-                  123 Organic Farm Road, Green Valley
+                  12-663/Saptagiri colony, tirupati, Andhra Pradesh, 517502
                 </p>
                 <button
                   className="mt-4 px-6 py-2 rounded-lg font-semibold transition-all duration-300 hover:transform hover:scale-105"
                   style={{
                     backgroundColor: "var(--color-accent)",
                     color: "white",
+                  }}
+                  onClick={() => {
+                    window.open(
+                      "https://maps.app.goo.gl/WC6eDQCco3YE1wGE7",
+                      "_blank"
+                    );
                   }}
                 >
                   Get Directions
@@ -425,9 +432,7 @@ const ContactSection = () => {
                   className="text-sm mb-2"
                   style={{ color: "var(--color-text)" }}
                 >
-                  123 Organic Farm Road
-                  <br />
-                  Green Valley, CA 94201
+                  12-663/Saptagiri colony, tirupati, Andhra Pradesh, 517502
                 </p>
                 <div
                   className="flex items-center gap-1 text-xs"
@@ -461,7 +466,7 @@ const ContactSection = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="tel:+15551234567"
+                href={`tel:${phone_number}`}
                 className="px-6 py-3 rounded-lg font-semibold transition-all duration-300 hover:transform hover:scale-105 flex items-center gap-2"
                 style={{
                   backgroundColor: "var(--color-primary)",
@@ -471,7 +476,7 @@ const ContactSection = () => {
                 📞 Call Now
               </a>
               <a
-                href="https://wa.me/15551234567"
+                href={`https://wa.me/${phone_number}`}
                 className="px-6 py-3 rounded-lg font-semibold transition-all duration-300 hover:transform hover:scale-105 flex items-center gap-2 border-2"
                 style={{
                   borderColor: "var(--color-primary)",

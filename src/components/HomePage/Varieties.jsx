@@ -227,6 +227,7 @@ const MushroomVarieties = () => {
                 backgroundColor: "var(--color-accent)",
                 color: "white",
               }}
+              onClick={() => { window.location.href = "/contact-us"; }}
             >
               Contact Us
             </button>

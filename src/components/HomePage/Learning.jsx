@@ -356,6 +356,7 @@ const CultivationLearning = () => {
                   backgroundColor: "var(--color-accent)",
                   color: "white",
                 }}
+                onClick={() => { window.location.href = "/contact-us"; }}
               >
                 Get Starter Kit
               </button>
@@ -397,6 +398,7 @@ const CultivationLearning = () => {
                 color: "white",
                 boxShadow: "0 8px 25px rgba(184, 134, 11, 0.4)",
               }}
+              onClick={() => { window.location.href = "/learn"; } }
             >
               Start Learning Mushroom Farming
               <span className="transform group-hover:translate-x-2 transition-transform duration-300">
