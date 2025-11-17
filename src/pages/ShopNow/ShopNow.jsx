@@ -196,7 +196,7 @@ const ProductsPreview = () => {
     message += `\nTotal: ₹${getTotalPrice()}\n\nPlease confirm my order.`;
 
     const encodedMessage = encodeURIComponent(message);
-    const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+    const whatsappURL = `https://wa.me/+91${phoneNumber}?text=${encodedMessage}`;
 
     window.open(whatsappURL, "_blank");
   };

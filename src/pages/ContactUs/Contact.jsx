@@ -25,7 +25,7 @@ const ContactSection = () => {
       title: "WhatsApp",
       details: `+91 ${phone_number}`,
       description: "24/7 quick responses",
-      action: `https://wa.me/${phone_number}`,
+      action: `https://wa.me/+91${phone_number}`,
       color: "from-green-50 to-emerald-100",
     },
     {
@@ -476,7 +476,7 @@ const ContactSection = () => {
                 📞 Call Now
               </a>
               <a
-                href={`https://wa.me/${phone_number}`}
+                href={`https://wa.me/+91${phone_number}`}
                 className="px-6 py-3 rounded-lg font-semibold transition-all duration-300 hover:transform hover:scale-105 flex items-center gap-2 border-2"
                 style={{
                   borderColor: "var(--color-primary)",
