@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import toast, { Toaster } from "react-hot-toast";
 
 const ProductsPreview = () => {
   const [selectedProduct, setSelectedProduct] = useState(null);
@@ -151,6 +152,7 @@ const ProductsPreview = () => {
         return [...prevCart, { ...product, quantity: 1 }];
       }
     });
+    toast.success(`${product.name} added to cart!`);
   };
 
   const updateQuantity = (productId, change) => {
@@ -172,6 +174,7 @@ const ProductsPreview = () => {
 
   const removeFromCart = (productId) => {
     setCart((prevCart) => prevCart.filter((item) => item.id !== productId));
+    toast.success("Item removed from cart");
   };
 
   const getTotalPrice = () => {
@@ -181,7 +184,7 @@ const ProductsPreview = () => {
   const sendWhatsAppOrder = () => {
     if (cart.length === 0) return;
 
-    const phoneNumber = "919505970379";
+    const phoneNumber = "9505970300";
     let message = "Hello! I would like to order:\n\n";
 
     cart.forEach((item) => {
@@ -200,6 +203,17 @@ const ProductsPreview = () => {
 
   return (
     <section id="shop" className="py-16 px-6 bg-white">
+      <Toaster
+        position="top-right"
+        toastOptions={{
+          duration: 3000,
+          style: {
+            background: "#10B981",
+            color: "#fff",
+          },
+        }}
+      />
+
       <div className="container mx-auto max-w-7xl">
         {/* Header */}
         <div className="text-center mb-12">
@@ -213,9 +227,12 @@ const ProductsPreview = () => {
         <div className="flex justify-end mb-6">
           <button
             onClick={() => setShowCart(true)}
-            className="flex items-center gap-2 px-4 py-2 bg-amber-600 text-white rounded-lg hover:bg-amber-700 transition-colors font-medium"
+            className="flex items-center gap-2 px-6 py-3 bg-amber-600 text-white rounded-lg hover:bg-amber-700 transition-colors font-medium shadow-md"
           >
-            🛒 Cart ({cart.reduce((total, item) => total + item.quantity, 0)})
+            <span>🛒</span>
+            <span>
+              Cart ({cart.reduce((total, item) => total + item.quantity, 0)})
+            </span>
           </button>
         </div>
 
@@ -227,7 +244,7 @@ const ProductsPreview = () => {
               onClick={() => setActiveCategory(category)}
               className={`px-5 py-2.5 rounded-lg font-medium transition-colors ${
                 activeCategory === category
-                  ? "bg-amber-600 text-white"
+                  ? "bg-amber-600 text-white shadow-md"
                   : "bg-gray-100 text-gray-700 hover:bg-gray-200"
               }`}
             >
@@ -241,7 +258,7 @@ const ProductsPreview = () => {
           {filteredProducts.map((product) => (
             <div
               key={product.id}
-              className="bg-white rounded-lg border border-gray-200 hover:shadow-md transition-shadow duration-300"
+              className="bg-white rounded-lg border border-gray-200 hover:shadow-lg transition-all duration-300"
             >
               {/* Product Image */}
               <div className="h-48 bg-gray-50 rounded-t-lg overflow-hidden">
@@ -295,7 +312,7 @@ const ProductsPreview = () => {
                   </div>
                   <button
                     onClick={() => addToCart(product)}
-                    className="px-4 py-2 bg-amber-600 text-white rounded-lg hover:bg-amber-700 transition-colors font-medium"
+                    className="px-4 py-2 bg-amber-600 text-white rounded-lg hover:bg-amber-700 transition-colors font-medium shadow-sm"
                   >
                     Add to Cart
                   </button>
@@ -307,7 +324,7 @@ const ProductsPreview = () => {
 
         {/* Simple CTA */}
         <div className="text-center">
-          <div className="bg-gray-50 rounded-xl p-8 max-w-2xl mx-auto">
+          <div className="bg-gray-50 rounded-xl p-8 max-w-2xl mx-auto border border-gray-200">
             <h3 className="text-xl font-semibold text-gray-900 mb-3">
               Need Custom Orders?
             </h3>
@@ -324,8 +341,8 @@ const ProductsPreview = () => {
 
       {/* Product Detail Modal */}
       {selectedProduct && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
-          <div className="bg-white rounded-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+        <div className="fixed inset-0 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+          <div className="bg-white rounded-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl border border-gray-200">
             <div className="p-6">
               <div className="flex justify-between items-start mb-4">
                 <h3 className="text-2xl font-bold text-gray-900">
@@ -333,7 +350,7 @@ const ProductsPreview = () => {
                 </h3>
                 <button
                   onClick={closeModal}
-                  className="text-gray-400 hover:text-gray-600 transition-colors"
+                  className="text-gray-400 hover:text-gray-600 transition-colors text-xl"
                 >
                   ✕
                 </button>
@@ -355,7 +372,7 @@ const ProductsPreview = () => {
                 {selectedProduct.features.map((feature, index) => (
                   <span
                     key={index}
-                    className="px-3 py-1 bg-amber-50 text-amber-700 text-sm rounded-full"
+                    className="px-3 py-1 bg-amber-50 text-amber-700 text-sm rounded-full border border-amber-200"
                   >
                     {feature}
                   </span>
@@ -376,7 +393,7 @@ const ProductsPreview = () => {
                     addToCart(selectedProduct);
                     closeModal();
                   }}
-                  className="px-6 py-3 bg-amber-600 text-white rounded-lg hover:bg-amber-700 transition-colors font-medium"
+                  className="px-6 py-3 bg-amber-600 text-white rounded-lg hover:bg-amber-700 transition-colors font-medium shadow-md"
                 >
                   Add to Cart
                 </button>
@@ -388,14 +405,14 @@ const ProductsPreview = () => {
 
       {/* Cart Modal */}
       {showCart && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
-          <div className="bg-white rounded-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+        <div className="fixed inset-0 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+          <div className="bg-white rounded-xl w-full max-w-md shadow-2xl border border-gray-200">
             <div className="p-6">
               <div className="flex justify-between items-center mb-6">
                 <h3 className="text-2xl font-bold text-gray-900">Your Cart</h3>
                 <button
                   onClick={() => setShowCart(false)}
-                  className="text-gray-400 hover:text-gray-600 transition-colors"
+                  className="text-gray-400 hover:text-gray-600 transition-colors text-xl"
                 >
                   ✕
                 </button>
@@ -403,73 +420,83 @@ const ProductsPreview = () => {
 
               {cart.length === 0 ? (
                 <div className="text-center py-8">
-                  <p className="text-gray-500">Your cart is empty</p>
+                  <div className="text-6xl mb-4 text-gray-300">🛒</div>
+                  <p className="text-gray-500 text-lg">Your cart is empty</p>
+                  <p className="text-gray-400 text-sm mt-2">
+                    Add some delicious mushrooms!
+                  </p>
                 </div>
               ) : (
-                <>
-                  <div className="space-y-4 mb-6">
+                <div className="space-y-4">
+                  {/* Cart Items - Fixed height with single scroll */}
+                  <div className="max-h-80 overflow-y-auto space-y-3">
                     {cart.map((item) => (
                       <div
                         key={item.id}
-                        className="flex items-center justify-between border-b pb-4"
+                        className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg border border-gray-200"
                       >
-                        <div className="flex items-center gap-3">
-                          <img
-                            src={item.image}
-                            alt={item.name}
-                            className="w-12 h-12 object-cover rounded"
-                          />
-                          <div>
-                            <h4 className="font-semibold text-gray-900">
-                              {item.name}
-                            </h4>
-                            <p className="text-sm text-gray-600">
-                              ₹{item.price} / {item.unit}
-                            </p>
-                          </div>
-                        </div>
-                        <div className="flex items-center gap-3">
-                          <div className="flex items-center gap-2">
+                        <img
+                          src={item.image}
+                          alt={item.name}
+                          className="w-16 h-16 object-cover rounded-lg flex-shrink-0"
+                        />
+                        <div className="flex-1 min-w-0">
+                          <h4 className="font-semibold text-gray-900 text-sm truncate">
+                            {item.name}
+                          </h4>
+                          <p className="text-xs text-gray-600">
+                            ₹{item.price} / {item.unit}
+                          </p>
+                          <div className="flex items-center justify-between mt-2">
+                            <div className="flex items-center gap-2 bg-white rounded-lg border border-gray-300">
+                              <button
+                                onClick={() => updateQuantity(item.id, -1)}
+                                className="w-7 h-7 flex items-center justify-center hover:bg-gray-100 rounded-l-lg transition-colors"
+                              >
+                                -
+                              </button>
+                              <span className="font-medium w-8 text-center text-sm">
+                                {item.quantity}
+                              </span>
+                              <button
+                                onClick={() => updateQuantity(item.id, 1)}
+                                className="w-7 h-7 flex items-center justify-center hover:bg-gray-100 rounded-r-lg transition-colors"
+                              >
+                                +
+                              </button>
+                            </div>
                             <button
-                              onClick={() => updateQuantity(item.id, -1)}
-                              className="w-6 h-6 rounded-full bg-gray-200 flex items-center justify-center hover:bg-gray-300"
+                              onClick={() => removeFromCart(item.id)}
+                              className="text-red-500 hover:text-red-700 transition-colors p-1"
+                              title="Remove item"
                             >
-                              -
-                            </button>
-                            <span className="font-medium">{item.quantity}</span>
-                            <button
-                              onClick={() => updateQuantity(item.id, 1)}
-                              className="w-6 h-6 rounded-full bg-gray-200 flex items-center justify-center hover:bg-gray-300"
-                            >
-                              +
+                              🗑️
                             </button>
                           </div>
-                          <button
-                            onClick={() => removeFromCart(item.id)}
-                            className="text-red-500 hover:text-red-700 ml-2"
-                          >
-                            🗑️
-                          </button>
                         </div>
                       </div>
                     ))}
                   </div>
 
-                  <div className="border-t pt-4">
+                  {/* Total and Checkout */}
+                  <div className="border-t border-gray-200 pt-4">
                     <div className="flex justify-between items-center mb-4">
-                      <span className="text-lg font-semibold">Total:</span>
-                      <span className="text-xl font-bold text-amber-600">
+                      <span className="text-lg font-semibold text-gray-900">
+                        Total:
+                      </span>
+                      <span className="text-2xl font-bold text-amber-600">
                         ₹{getTotalPrice()}
                       </span>
                     </div>
                     <button
                       onClick={sendWhatsAppOrder}
-                      className="w-full py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors font-medium flex items-center justify-center gap-2"
+                      className="w-full py-3 bg-green-500 text-white rounded-lg hover:bg-green-600 transition-colors font-medium flex items-center justify-center gap-2 shadow-md"
                     >
-                      📱 Buy Now via WhatsApp
+                      <span>📱</span>
+                      <span>Order via WhatsApp</span>
                     </button>
                   </div>
-                </>
+                </div>
               )}
             </div>
           </div>
